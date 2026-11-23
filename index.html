@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EcoSmart Bin - Lixeira com Sensor Ultrassônico</title>
+    <!-- Ligação com o arquivo CSS na pasta vizinha -->
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+    <header>
+        <h1>EcoSmart Bin: Lixeira Inteligente Sem Contato</h1>
+        <p>Proposta de automação residencial usando sensor ultrassônico (HC-SR04)</p>
+    </header>
+
+    <main class="container">
+        <!-- Seção Teórica da Proposta -->
+        <section class="card">
+            <h2>1. Para que serve?</h2>
+            <p>A <strong>EcoSmart Bin</strong> é uma lixeira automatizada para cozinhas, banheiros ou escritórios que abre sua tampa sozinha quando detecta a mão ou um objeto se aproximando, fechando-se automaticamente após o descarte.</p>
+
+            <h2>2. Como funciona?</h2>
+            <ul>
+                <li><strong>Emissão de ondas:</strong> O sensor ultrassônico envia pulsos sonoros de alta frequência (inaudíveis) continuamente.</li>
+                <li><strong>Cálculo de distância:</strong> Quando uma mão entra na zona de alcance, o som reflete e volta ao sensor. O microcontrolador (ex: Arduino) calcula a distância pelo tempo de retorno do eco.</li>
+                <li><strong>Ação automática:</strong> Se a distância for menor ou igual a <strong>30 cm</strong>, um servo motor é acionado e levanta a tampa por alguns segundos.</li>
+            </ul>
+
+            <h2>3. Por que torna a vida melhor?</h2>
+            <ul>
+                <li><strong>Mais higiene e segurança:</strong> Evita o contato direto com bactérias e sujeiras na tampa.</li>
+                <li><strong>Mais praticidade:</strong> Permite descartar lixo mesmo quando você está com as duas mãos ocupadas.</li>
+            </ul>
+        </section>
+
+        <!-- Seção de Simulação Interativa -->
+        <section class="card simulacao">
+            <h2>4. Simulação Interativa do Sensor</h2>
+            <p>Mova o controle deslizante abaixo para simular a aproximação da sua mão até o sensor da lixeira:</p>
+
+            <div class="controle">
+                <label for="distanciaInput">Distância da mão até o sensor: <strong id="valorDistancia">80</strong> cm</label>
+                <input type="range" id="distanciaInput" min="5" max="100" value="80">
+            </div>
+
+            <div class="painel-status" id="statusPainel">
+                Status: Aguardando aproximação (Tampa Fechada)
+            </div>
+
+            <!-- Representação Visual da Lixeira -->
+            <div class="cenario">
+                <div class="mao" id="maoIcone">✋</div>
+                <div class="onda" id="ondaSensor">)))</div>
+                
+                <div class="lixeira">
+                    <div class="tampa" id="tampaLixeira"></div>
+                    <div class="corpo-lixeira">
+                        <div class="sensor" title="Sensor Ultrassônico HC-SR04">
+                            <span>👁️</span><span>👁️</span>
+                        </div>
+                        <p>EcoSmart</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Ligação com o arquivo JavaScript na pasta vizinha -->
+    <script src="../js/script.js"></script>
+</body>
+</html>
+
